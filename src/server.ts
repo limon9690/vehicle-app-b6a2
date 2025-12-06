@@ -12,6 +12,10 @@ const port = config.port;
 
 initDB();
 
+app.get("/", (req, res) => {
+  res.json({ message: "API is working" });
+});
+
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/vehicles', vehicleRoutes);
 app.use('/api/v1/users', userRoutes);
