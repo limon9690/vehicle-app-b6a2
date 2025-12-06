@@ -43,8 +43,6 @@ const updateUserForAdmin = async(id : string, payload : Record<string, undefined
     const updatedUser = updatedResult.rows[0];
     delete updatedUser.password;
 
-    console.log(updatedUser);
-
     return updatedUser;
 }
 
