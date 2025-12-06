@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import config from './config';
 import { initDB } from './config/db';
 import { authRoutes } from './modules/auth/auth.routes';
@@ -8,11 +8,11 @@ import { bookingRoutes } from './modules/booking/booking.routes';
 
 const app = express();
 app.use(express.json());
-//const port = config.port;
+const port = config.port;
 
 initDB();
 
-app.get("/", (req, res) => {
+app.get("/", (req : Request, res : Response) => {
   res.json({ message: "API is working" });
 });
 
@@ -21,7 +21,8 @@ app.use('/api/v1/vehicles', vehicleRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
 
-// app.listen(port, () => {
-//     console.log(`app is running on port ${port}`);
-// })
+app.listen(port, () => {
+    console.log(`app is running on port ${port}`);
+})
+
 export default app;

@@ -41,6 +41,7 @@ const updateUserForAdmin = async(id : string, payload : Record<string, undefined
     const updatedResult = await pool.query('UPDATE users SET name=$1, email=$2, phone=$3, role=$4 WHERE id=$5 RETURNING *', [existingUser.name, existingUser.email, existingUser.phone, existingUser.role, id]);
 
     const updatedUser = updatedResult.rows[0];
+    delete updatedUser.password;
 
     return updatedUser;
 }
@@ -75,6 +76,7 @@ const updateUserForUser = async(id : string, payload : Record<string, undefined>
     const updatedResult = await pool.query('UPDATE users SET name=$1, email=$2, phone=$3, role=$4 WHERE id=$5 RETURNING *', [existingUser.name, existingUser.email, existingUser.phone, existingUser.role, id]);
 
     const updatedUser = updatedResult.rows[0];
+    delete updatedUser.password;
 
     return updatedUser;
 }
