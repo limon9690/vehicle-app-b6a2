@@ -8,7 +8,7 @@ import { bookingRoutes } from './modules/booking/booking.routes';
 
 const app = express();
 app.use(express.json());
-const port = config.port;
+//const port = config.port;
 
 initDB();
 
@@ -21,6 +21,6 @@ app.use('/api/v1/vehicles', vehicleRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
 
-app.listen(port, () => {
-    console.log(`app is running on port ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`app is running on port ${port}`);
+// })
