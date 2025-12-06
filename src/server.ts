@@ -24,3 +24,4 @@ app.use('/api/v1/bookings', bookingRoutes);
 // app.listen(port, () => {
 //     console.log(`app is running on port ${port}`);
 // })
+export default app;
